@@ -1,0 +1,11 @@
+{
+    "name": "pathfinder-vue",
+    "description": "A Vue implementation of https://github.com/orionriitters/path_finder",
+    "author": "Orion McCoy-Riitters",
+    "dependencies": {
+        "express": "^4.16.4"
+    },
+    "scripts": {
+        "start": "node ./server.js"
+    }
+}
