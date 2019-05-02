@@ -1,8 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
 
-Vue.config.productionTip = false
+import PathfinderAPI from '@/services/PathfinderAPI';
+
+Vue.config.productionTip = false;
+
+Vue.prototype.$hello_api = PathfinderAPI;
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount('#app');
