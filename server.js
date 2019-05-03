@@ -3,7 +3,7 @@ var routes = require('./routes/routes.js');
 var path = require('path');
 
 var app = express();
-app.use(express.static(path.join(__dirname, 'hello-vue', 'dist')));
+app.use(express.static(path.join(__dirname, 'pathfinder-vue', 'dist')));
 app.use('/api', routes);
 
 var server = app.listen(process.env.PORT || 3000, function() {
