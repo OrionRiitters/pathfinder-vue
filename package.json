@@ -13,9 +13,10 @@
     },
     "scripts": {
         "start": "node ./server.js",
-	"test": "mocha"
+        "test": "mocha"
     },
     "devDependencies": {
+        "dotenv": "^8.0.0",
         "eslint-config-prettier": "^4.2.0",
         "eslint-plugin-prettier": "^3.0.1",
         "mocha": "^6.1.4"
