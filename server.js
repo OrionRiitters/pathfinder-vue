@@ -1,17 +1,21 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var Sequelize = require('sequelize');
-var routes = require('./routes/routes.js');
-var path = require('path');
+const express = require('express');
+const bodyParser = require('body-parser');
+const Sequelize = require('sequelize');
+const path = require('path');
+const dotenv = require('dotenv');
+const routes = require('./routes/routes.js');
 
-// Set up database
-sequelize = new Sequelize('');
 
-var app = express();
+// Create environment variable from .env file
+Dotenv.config();
+// Set up database, this will work locally, not for Heroku.
+sequelize = new Sequelize(process.env.POSTGRES_URI);
+
+const app = express();
 
 app.use(express.static(path.join(__dirname, 'pathfinder-vue', 'dist')));
 app.use('/api', routes);
 
-var server = app.listen(process.env.PORT || 3000, function() {
+const server = app.listen(process.env.PORT || 3000, function() {
     console.log('app running on port', server.address().port);
 });
