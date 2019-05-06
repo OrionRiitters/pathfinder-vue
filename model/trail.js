@@ -2,35 +2,35 @@ module.exports = (sequelize, Datatypes) => {
 
     var Trail = sequelize.define('Trail', {
         trail_id: {
-            type: Datatypes.Integer,
+            type: Datatypes.INTEGER,
             primaryKey: true
         },
         name: {
-            type: Datatypes.String
+            type: Datatypes.STRING
         },
         location: {
-            type: Datatypes.String
+            type: Datatypes.STRING
         },
         summary: {
-            type: Datatypes.String
+            type: Datatypes.STRING
         },
         difficulty: {
-            type: Datatypes.String
+            type: Datatypes.STRING
         },
         stars: {
-            type: Datatypes.Double
+            type: Datatypes.DOUBLE
         },
         latitude: {
-            type: Datatypes.Double
+            type: Datatypes.DOUBLE
         },
         longitude: {
-            type: Datatypes.Double
+            type: Datatypes.DOUBLE
         },
         length: {
-            type: Datatypes.Double
+            type: Datatypes.DOUBLE
         },
         hasHiked: {
-            type: Datatypes.Boolean
+            type: Datatypes.BOOLEAN
         }
     });
 
