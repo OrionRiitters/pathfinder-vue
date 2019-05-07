@@ -4,7 +4,7 @@
   <page-header />
     <left-box />
     <search v-on:childToParent="findTrails" />
-    <RouterView />
+    <RouterView v-bind:trails="newTrails" />
 
   </div>
 </template>

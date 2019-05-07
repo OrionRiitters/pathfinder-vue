@@ -29,7 +29,7 @@ export default {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-#left-details {
+#left-box {
     grid-row: 8 / 36;
     grid-column: 2 / 9;
     background-color: rgba(63, 63, 63, 0.95);

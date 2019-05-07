@@ -1,34 +1,22 @@
 <template>
-  <div id="map">
-
-        <l-map
-ref="stateMap"
-style="height: 100%; width: 100%"
-v-bind:zoom="zoom"
-v-bind:center="center">
-      <l-tile-layer :url="url"></l-tile-layer>
-    </l-map>
-
+  <div id="bucket-list">
+    <p v-bind="trails" > {{ trails }}</p>
   </div>
 </template>
 
 <script>
-import { LMap, LTileLayer } from 'vue2-leaflet'
 export default {
-    name: "Map",
-    components: {
-        LMap, LTileLayer
-    },
-    props: {
-        trails: {
-            type: Object
-        }
-    }
+name: "BucketList",
+props: {
+trails: {
+type: Object
+}
+}
 };
 </script>
 
 <style>
-#map {
+#bucket-list {
     grid-row: 8 / 36;
     grid-column: 10 / 32;
     background-color: rgba(63, 63, 63, 0.95);

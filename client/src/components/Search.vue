@@ -14,8 +14,9 @@
       <p class="vertical-center">Find Path</p>
     </button>
 
-    <button id="saved-trails" class="btn btn-primary vertical-center block">
-      <p class="vertical-center">Saved Trails</p>
+    <button id="saved-trails" class="btn btn-primary vertical-center block" v-on:click="routerPush">
+      <p v-if="routeIsMap" class="vertical-center">Saved Trails</p>
+      <p v-else class="vertical-center">View Map</p>
     </button>
   </div>
 </template>
@@ -34,6 +35,14 @@ export default {
     methods: {
         findPath() {
                 this.$emit('childToParent', this.city, this.selectedState);
+        },
+        routerPush() {
+            this.routeIsMap ? this.$router.push({name: 'bucketList'}) : this.$router.push({name: 'map'});
+        }
+    },
+    computed: {
+        routeIsMap: function() {
+            return this.$route.name == 'map';
         }
     }
 };
