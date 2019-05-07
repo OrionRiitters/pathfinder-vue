@@ -15,7 +15,12 @@ module.exports = function(lat, lon) {
                 key: key
             }
         }).then(res => {
-            return res.data.trails;
+            returnable = {
+                coordinates: {lat: lat, lon: lon},
+                trails: res.data.trails
+            };
+            console.log(returnable);
+            return returnable;
         }).catch(err => {
             console.error(err.stack);
             throw err;

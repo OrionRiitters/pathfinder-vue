@@ -20,9 +20,7 @@ export default {
                 state: state
             }})
             .then(res => {
-                console.log('adf');
-                console.log(res);
-                return res;
+                return res['data'];
             })
             .catch(err => {
                 console.log(err);

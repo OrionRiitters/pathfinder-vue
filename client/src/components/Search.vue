@@ -10,7 +10,7 @@
     <select id="state" class="vertical-center" v-model="state">
       <option v-bind="state" :value="state">{{ state }}</option>
     </select>
-    <button id="find-path" class="btn btn-primary vertical-center block">
+    <button id="find-path" class="btn btn-primary vertical-center block" v-on:click="findPath">
       <p class="vertical-center">Find Path</p>
     </button>
 
@@ -22,13 +22,18 @@
 
 <script>
 export default {
-  name: "Search",
-  data() {
-    return {
-      city: "",
-      state: "A state"
-    };
-  }
+    name: "Search",
+    data() {
+        return {
+            city: "",
+            state: "A state"
+        };
+    },
+    methods: {
+        findPath() {
+                this.$emit('childToParent');
+        }
+    }
 };
 </script>
 
