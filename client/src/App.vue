@@ -1,9 +1,9 @@
 <template>
 <div id="app" class="grid-container app-container">
   <title>Path Finder</title>
-  <page-header v-on:childToParent="findTrails" v-bind:prop_trails="trails" v-bind:prop_testResponse="testResponse" />
+  <page-header />
     <left-box />
-    <search />
+    <search v-on:childToParent="findTrails" />
     <RouterView />
 
   </div>
@@ -19,10 +19,9 @@ export default {
   data() {
     return {
         trails: [],
-        testResponse: {},
         centerLat: 0,
         centerLon: 0,
-        newTrails: {}
+        newTrails: {},
     }
   },
   components: {

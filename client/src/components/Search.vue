@@ -7,8 +7,8 @@
       placeholder="Enter City Name"
       v-model="city"
     />
-    <select id="state" class="vertical-center" v-model="state">
-      <option v-bind="state" :value="state">{{ state }}</option>
+    <select id="state" class="vertical-center" v-model="selectedState">
+      <option :value="state" v-for="state in states">{{ state }}</option>
     </select>
     <button id="find-path" class="btn btn-primary vertical-center block" v-on:click="findPath">
       <p class="vertical-center">Find Path</p>
@@ -21,17 +21,19 @@
 </template>
 
 <script>
+import stateAbbrs from '../states.js'
 export default {
     name: "Search",
     data() {
         return {
             city: "",
-            state: "A state"
+            states: stateAbbrs(),
+            selectedState: ""
         };
     },
     methods: {
         findPath() {
-                this.$emit('childToParent');
+                this.$emit('childToParent', this.city, this.selectedState);
         }
     }
 };
