@@ -1,11 +1,9 @@
 const axios = require('axios');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 module.exports = function(lat, lon) {
     const url = "https://www.hikingproject.com/data/get-trails";
-    const key = process.env.HIKING_PROJECT_KEY;
+
+   const key = process.env.HIKING_PROJECT_KEY;
 
     try {
         return axios.get(url, {

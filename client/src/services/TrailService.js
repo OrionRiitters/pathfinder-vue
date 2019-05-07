@@ -1,16 +1,32 @@
 import axios from "axios";
 
-const base_url = "/api/trails";
+const db_url = "/api/db/trails";
+const ext_trails_url = "api/external";
+
 export default {
   getAllTrails() {
-    return axios.get(base_url).then(res => {
-      return res.data;
-    });
+      return axios.get(db_url)
+          .then(res => { return res.data; });
   },
 
   addTrail(trail) {
-    return axios.post(base_url, trail).then(res => {
-      return res.data;
-    });
-  }
+      return axios.post(db_url, trail)
+          .then(res => { return res.data; });
+  },
+    findTrails(city, state) {
+        return axios.get(ext_trails_url, {
+            params: {
+                city: city,
+                state: state
+            }})
+            .then(res => {
+                console.log('adf');
+                console.log(res);
+                return res;
+            })
+            .catch(err => {
+                console.log(err);
+               throw err;
+            });
+    }
 };

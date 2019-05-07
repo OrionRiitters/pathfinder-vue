@@ -1,22 +1,35 @@
 const express = require('express');
+const hikingProjectAPI = require('../ext_apis/hikingproject-api');
+const geocodeAPI = require('../ext_apis/geocode-api');
 
 //TODO: Error handling!
 
 module.exports = function(Trail) {
     var router = express.Router();
 
-    router.get('/trails', function(req, res, next) {
+    router.get('/db/trails', function(req, res, next) {
         Trail.findAll().then( trails => {
             return res.json(trails);
         });
     });
 
-    router.post('/trails', function(req, res, next) {
+    router.post('/db/trails', function(req, res, next) {
         Trail.create(req.body).then( (data) => {
             return res.status(201).send('ok');
         }).catch(err => {
             console.log(err);
             return res.status(501);
+        });
+    });
+
+    router.get('/external/', function(req, res, next) {
+        geocodeAPI(req.query.city, req.query.state)
+            .then(geocode => { // Use first location returned from nominatim
+                return hikingProjectAPI(geocode[0].lat, geocode[0].lon)
+                    .then( trails => { return res.json(trails); })
+                    .catch( err=> { console.log(err); });
+            })
+            .catch(err => {console.log(err);
         });
     });
 

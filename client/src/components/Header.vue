@@ -5,6 +5,9 @@
         {{ trail.trail_id }}
       </li>
     </ul>
+    <p v-bind="prop_testResponse">
+      {{ prop_testResponse }}
+    </p>
   </div>
 </template>
 
@@ -13,14 +16,18 @@ export default {
   name: "app",
   data() {
     return {
-      data_trails: []
+        data_trails: [],
+        testResponse: {}
     };
   },
   props: {
     prop_trails: {
       type: Array,
       required: true
-    }
+    },
+      prop_testResponse: {
+          type: Object
+      }
   }
 };
 </script>
