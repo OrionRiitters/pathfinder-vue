@@ -10,11 +10,10 @@ export default {
   name: "HelloWorld",
   data() {
     return {
-      helloMessage: ""
     };
   },
   props: {
-    msg: String
+    
   },
   mounted() {
     this.$pathfinder_api.getHelloMessage().then(resp => {

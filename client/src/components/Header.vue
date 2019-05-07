@@ -1,44 +1,27 @@
 <template>
-  <div id="app">
-    <ul id="test">
-      <li v-for="trail in prop_trails">
-        {{ trail.trail_id }}
-      </li>
-    </ul>
-    <p v-bind="prop_testResponse">
-      {{ prop_testResponse }}
-    </p>
+<div id="page-header">
+  <div id="header-title" class="vertical-center">
+    <h1>Path Finder</h1>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "app",
-  data() {
-    return {
-        data_trails: [],
-        testResponse: {}
-    };
-  },
-  props: {
-    prop_trails: {
-      type: Array,
-      required: true
-    },
-      prop_testResponse: {
-          type: Object
-      }
-  }
+  name: "PageHeader"
 };
 </script>
 
 <style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+#page-header {
+    text-align: center;
+    grid-row: 1 / 5;
+    grid-column: 2 / 32;
+    color: #3f3f3f;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 'bold';
+}
+#header-title {
+    display: inline-block;
 }
 </style>

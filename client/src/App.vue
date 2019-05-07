@@ -1,12 +1,17 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <Header v-bind:prop_trails="trails" v-bind:prop_testResponse="testResponse" />
+<div id="app" class="grid-container app-container">
+  <title>Path Finder</title>
+  <page-header v-bind:prop_trails="trails" v-bind:prop_testResponse="testResponse" />
+    <left-box />
+  <search />
+
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
+  import PageHeader from './components/Header.vue'
+import Search from './components/Search.vue'
+import LeftBox from './components/LeftBox.vue'
 
 export default {
   name: 'app',
@@ -17,7 +22,9 @@ export default {
     }
   },
   components: {
-    Header
+  PageHeader,
+      Search,
+      LeftBox
   },
     mounted() {
         this.loadSavedTrails();
@@ -42,11 +49,13 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+    font-family: 'Archivo', sans-serif;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(32, 1fr);
+    grid-template-rows: repeat(36, 1fr);
+    height: 100vh;
+    width: 100vw;
 }
 </style>
