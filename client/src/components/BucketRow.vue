@@ -38,4 +38,11 @@ this.$emit('changeHiked', this.trail);
 };
 </script>
 
-<style></style>
+<style>
+td {
+    font-weight: bold;
+    border-bottom: 1px;
+    border-top: 1px;
+    border-color: white;
+}
+</style>
