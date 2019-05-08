@@ -25,16 +25,15 @@ export default {
         return {
             url: 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
             zoom: 11,
-            center: [44.9778, -93.2650],
-            onCoordChange: this.coordinates,
+            center: this.coordinates,
             bounds: null,
             newIcon: L.icon({
                 iconUrl: 'http://leafletjs.com/examples/custom-icons/leaf-green.png',
                 iconSize:     [25, 58],
                 iconAnchor:   [0, 0],
-        popupAnchor:  [-3, -76]
-      })
-
+                popupAnchor:  [-3, -76]
+            })
+            
         }
     },
     props: {
@@ -49,20 +48,14 @@ export default {
         this.$refs.trailMap.mapObject.dragging.disable()
     },
     await() {
-        this.renderMap()
+        this.center = this.coordinates
+        this.$refs.stateMap.mapObject.flyTo(this.center, this.zoom)
     },
     watch: {
-        trails: function() {
-            this.renderMap()
-        },
-        onCoordChange: function() {
-            this.center = this.coordinates;
-        }
-    },
-    methods: {
-        renderMap() {
+        newTrails: function() {
             this.center = this.coordinates
-      } 
+            this.$refs.trailMap.mapObject.flyTo(this.center, this.zoom)
+        }
     }
 };
 </script>

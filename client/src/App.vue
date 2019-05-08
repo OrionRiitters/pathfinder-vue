@@ -29,9 +29,11 @@ export default {
         Search,
         LeftBox
     },
+    created() {
+        this.findTrails('Minneapolis', 'MN')
+    },
     mounted() {
         this.loadSavedTrails();
-        this.findTrails('Minneapolis', 'MN')
     },
     methods: {
         loadSavedTrails() {

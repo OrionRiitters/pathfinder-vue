@@ -37,7 +37,8 @@ export default {
                 this.$emit('childToParent', this.city, this.selectedState);
         },
         routerPush() {
-            this.routeIsMap ? this.$router.push({name: 'bucketList'}) : this.$router.push({name: 'map'});
+            let newRoute = this.routeIsMap ? 'bucketList' : 'map'
+            this.$router.push({name: newRoute})
         }
     },
     computed: {
