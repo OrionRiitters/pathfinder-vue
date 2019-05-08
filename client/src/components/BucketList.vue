@@ -25,7 +25,8 @@ export default {
     },
     methods: {
         viewDetails(rowTrail) {
-            this.$emit('viewDetails', rowTrail)
+            this.$emit('viewDetails', rowTrail);
+            console.log(rowTrail);
         },
         changeHiked(rowTrail) {
             this.$emit('changeHiked', rowTrail)

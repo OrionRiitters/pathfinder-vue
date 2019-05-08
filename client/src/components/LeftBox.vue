@@ -4,7 +4,18 @@
                 <p>Details</p>
             </div>
             <div id="left-details">
-                <p>{{ detailsTrail }}</p>
+              <div v-if="detailsTrail.name">
+              <h2>{{ detailsTrail.name }}</h2>
+              <p>Location: {{ detailsTrail.location }}</p>
+              <p>Stars: {{ detailsTrail.stars }}</p>
+              <p>Difficulty: {{ this.capitalize(detailsTrail.difficulty) }}</p>
+              <p>Length: {{ detailsTrail.length }} Miles</p>
+              <p>Summary: {{ detailsTrail.summary }}</p>
+              <p>{{detailsTrail.hasHiked}}</p>
+              <button v-if="detailsTrail.hasOwnProperty('hasHiked')" class="btn btn-secondary btn-right" v-on:click="changeHiked">
+        Changed Hiked Status
+      </button>
+              </div>
             </div>
             </div>
 </template>
@@ -16,7 +27,19 @@ export default {
         detailsTrail: {
             type: Object
         }
+    },
+    methods: {
+        capitalize(attr) {
+            if (attr) {
+                return attr[0].toUpperCase() + attr.slice(1);
+            } else { return attr }
+        },
+        changeHiked() {
+            this.$emit('changeHiked', this.detailsTrail);
+            console.log(this.detailsTrail)
     }
+    }
+
 };
 </script>
 

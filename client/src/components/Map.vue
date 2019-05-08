@@ -47,6 +47,7 @@ export default {
     methods: {
         viewDetails(trail) {
             this.$emit("viewDetails", trail)
+            console.log(trail)
         }
     },
     watch: {
