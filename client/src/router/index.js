@@ -9,13 +9,15 @@ export default new Router({
         {
             path: '/',
             component: Map,
-            name: 'map'
+            name: 'map',
+            props: true
         },
         // Route to BucketList component
         {
-            path: '/BucketList',
+            path: '/bucketList',
             component: BucketList,
-            name: 'bucketList'
+            name: 'bucketList',
+            props: true
         }
     ]
 });

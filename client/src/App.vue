@@ -2,9 +2,9 @@
 <div id="app" class="grid-container app-container">
   <title>Path Finder</title>
   <page-header />
-    <left-box />
+    <left-box v-bind:detailsTrail="detailsTrail" />
     <search v-on:childToParent="findTrails" />
-    <RouterView v-bind:trails="newTrails" />
+    <RouterView v-on:viewDetails="viewDetails" :newTrails="newTrails" :oldTrails="oldTrails" :coordinates="coordinates" />
 
   </div>
 </template>
@@ -18,10 +18,10 @@ export default {
   name: 'app',
   data() {
     return {
-        trails: [],
-        centerLat: 0,
-        centerLon: 0,
+        oldTrails: [],
+        coordinates: [],
         newTrails: {},
+        detailsTrail: []
     }
   },
   components: {
@@ -36,17 +36,18 @@ export default {
   methods: {
         loadSavedTrails() {
             this.$trail_api.getAllTrails().then( res => {
-                this.trails = res;
+                this.oldTrails = res;
             } )
         },
       findTrails(city, state) {
           this.$trail_api.findTrails(city, state).then( res => {
-              console.log(res)
               // Assign response data to component variables
-              this.centerLat = res['coordinates']['lat'];
-              this.centerLon = res['coordinates']['lon'];
+              this.coordinates = [res['coordinates']['lat'], res['coordinates']['lon']];
               this.newTrails = res['trails'];
           })
+      },
+      viewDetails(trail) {
+          this.detailsTrail = trail
       }
 
     }

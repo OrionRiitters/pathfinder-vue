@@ -4,14 +4,19 @@
                 <p>Details</p>
             </div>
             <div id="left-details">
-                <p>Find a path to view the details here!</p>
+                <p>{{ detailsTrail }}</p>
             </div>
             </div>
 </template>
 
 <script>
 export default {
-  name: "LeftBox"
+    name: "LeftBox",
+    props: {
+        detailsTrail: {
+            type: Array
+        }
+    }
 };
 </script>
 
