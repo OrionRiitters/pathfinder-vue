@@ -13,6 +13,14 @@ module.exports = function(Trail) {
         });
     });
 
+    router.patch('/db/trails', function(req, res, next) {
+        Trail.update(
+            {hasHiked: req.body.hasHiked},
+            {returning: true, where: {trail_id: req.body.trail_id}})
+            .then(function( [rowsUpdate, [updatedTrail] ]) {
+                res.json(updatedTrail);
+            });
+    });
     router.post('/db/trails', function(req, res, next) {
         Trail.create(req.body).then( (data) => {
             return res.status(201).send('ok');

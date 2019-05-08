@@ -26,5 +26,17 @@ export default {
                 console.log(err);
                throw err;
             });
+    },
+    updateTrailHiked(trailUpdate) {
+        return axios.patch(
+            db_url,
+            trailUpdate
+        ).then(res => {
+            return res['data'];
+        })
+            .catch(err => {
+                console.log(err);
+                throw err;
+            });
     }
 };

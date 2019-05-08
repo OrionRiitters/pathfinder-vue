@@ -1,11 +1,17 @@
 <template>
   <div id="bucket-list">
-    <bucket-table v-on:viewDetails="viewDetails" v-bind:oldTrails="oldTrails" />
+    <td>
+      <bucket-row
+        v-on:changeHiked="changeHiked"
+        v-on:viewDetails="viewDetails"
+        v-for="trail in oldTrails"
+        v-bind:trail="trail" />
+      </td>
   </div>
 </template>
 
 <script>
-import BucketTable from './BucketTable.vue'
+import BucketRow from './BucketRow.vue'
 
 export default {
   name: "BucketList",
@@ -15,11 +21,14 @@ export default {
     }
   },
     components: {
-        BucketTable
+        BucketRow
     },
     methods: {
         viewDetails(rowTrail) {
             this.$emit('viewDetails', rowTrail)
+        },
+        changeHiked(rowTrail) {
+            this.$emit('changeHiked', rowTrail)
         }
     }
 };

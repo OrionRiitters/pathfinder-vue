@@ -7,6 +7,9 @@
       <button class="btn btn-secondary btn-right" v-on:click="showDetails">
         View Details
       </button>
+      <button class="btn btn-secondary btn-right" v-on:click="changeHiked">
+        Changed Hiked Status
+      </button>
     </tr>
   </div>
 </template>
@@ -21,12 +24,15 @@ export default {
   },
   computed: {
     trailHiked: function() {
-      return this.trail.hashiked == 1;
+      return this.trail.hashiked;
     }
   },
   methods: {
     showDetails() {
       this.$emit("viewDetails", this.trail);
+    },
+changeHiked() {
+this.$emit('changeHiked', this.trail);
     }
   }
 };

@@ -2,6 +2,7 @@
   <div id="bucket-table">
     <td>
       <bucket-row
+        v-on:
         v-on:viewDetails="viewDetails"
         v-for="trail in oldTrails"
         v-bind:trail="trail"

@@ -4,53 +4,67 @@
   <page-header />
     <left-box v-bind:detailsTrail="detailsTrail" />
     <search v-on:childToParent="findTrails" />
-    <RouterView v-on:viewDetails="viewDetails" :newTrails="newTrails" :oldTrails="oldTrails" :coordinates="coordinates" />
+    <RouterView v-on:changeHiked="changeHiked" v-on:viewDetails="viewDetails" :newTrails="newTrails" :oldTrails="oldTrails" :coordinates="coordinates" />
 
   </div>
 </template>
 
 <script>
-  import PageHeader from './components/Header.vue'
+import PageHeader from './components/Header.vue'
 import Search from './components/Search.vue'
 import LeftBox from './components/LeftBox.vue'
 
 export default {
-  name: 'app',
-  data() {
-    return {
-        oldTrails: [],
-        coordinates: [],
-        newTrails: {},
-        detailsTrail: []
-    }
-  },
-  components: {
-  PageHeader,
-      Search,
-      LeftBox
-  },
+    name: 'app',
+    data() {
+        return {
+            oldTrails: [],
+            coordinates: [],
+            newTrails: {},
+            detailsTrail: {}
+        }
+    },
+    components: {
+        PageHeader,
+        Search,
+        LeftBox
+    },
     mounted() {
         this.loadSavedTrails();
         this.findTrails('Minneapolis', 'MN')
     },
-  methods: {
+    methods: {
         loadSavedTrails() {
             this.$trail_api.getAllTrails().then( res => {
                 this.oldTrails = res;
             } )
         },
-      findTrails(city, state) {
-          this.$trail_api.findTrails(city, state).then( res => {
-              // Assign response data to component variables
-              this.coordinates = [res['coordinates']['lat'], res['coordinates']['lon']];
-              this.newTrails = res['trails'];
-          })
-      },
-      viewDetails(trail) {
-          this.detailsTrail = trail
-      }
+        findTrails(city, state) {
+            this.$trail_api.findTrails(city, state).then( res => {
+                // Assign response data to component variables
+                this.coordinates = [res['coordinates']['lat'], res['coordinates']['lon']];
+                this.newTrails = res['trails'];
+            })
+        },
+        viewDetails(trail) {
+            this.detailsTrail = trail
+        },
+        changeHiked(trail) {
+            let hiked = (trail.hasHiked ? false : true)
+            this.$trail_api.updateTrailHiked(
+                {
+                    trail_id: trail.trail_id,
+                    hasHiked: hiked
+                }).then(res => {
+                    for (let i in this.oldTrails) {
+                        if (res.trail_id == this.oldTrails[i].trail_id) {
+                            this.oldTrails[i].hasHiked = res.hasHiked
+                            this.detailsTrail = this.oldTrails[i]
+                        }
+                    }
 
-    }
+                });
+    }}
 }
 </script>
 

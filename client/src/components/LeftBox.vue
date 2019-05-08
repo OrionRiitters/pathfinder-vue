@@ -14,7 +14,7 @@ export default {
     name: "LeftBox",
     props: {
         detailsTrail: {
-            type: Array
+            type: Object
         }
     }
 };
