@@ -34,7 +34,7 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
-    Trail.sync({force: true}).then( () => {
+    Trail.sync({force: false}).then( () => {
         console.log('synced trail table');
     });
 

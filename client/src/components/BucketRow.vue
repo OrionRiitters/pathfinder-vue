@@ -24,7 +24,7 @@ export default {
   },
   computed: {
     trailHiked: function() {
-      return this.trail.hashiked;
+      return this.trail.hasHiked;
     }
   },
   methods: {

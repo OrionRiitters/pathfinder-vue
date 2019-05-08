@@ -2,7 +2,7 @@
 <div id="app" class="grid-container app-container">
   <title>Path Finder</title>
   <page-header />
-    <left-box v-on:changeHiked="changeHiked" v-bind:detailsTrail="detailsTrail" />
+    <left-box v-on:changeHiked="changeHiked" v-on:newTrail="newTrail" v-bind:detailsTrail="detailsTrail" />
     <search v-on:childToParent="findTrails" />
     <RouterView v-on:changeHiked="changeHiked" v-on:viewDetails="viewDetails" :newTrails="newTrails" :oldTrails="oldTrails" :coordinates="coordinates" />
 
@@ -50,6 +50,10 @@ export default {
         },
         viewDetails(trail) {
             this.detailsTrail = trail
+        },
+        newTrail(trail) {
+            console.log(trail);
+            this.oldTrails.push(trail);
         },
         changeHiked(trail) {
             let hiked = (trail.hasHiked ? false : true)

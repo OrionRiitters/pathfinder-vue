@@ -41,7 +41,9 @@ export default {
         },
         saveTrail() {
             this.$trail_api.saveNewTrail(this.detailsTrail)
-                .then(res => { console.log(res) })
+                .then(res => {
+                    this.$emit('newTrail', res)
+                })
             .catch(err => {console.log(err) });
         }
     }
