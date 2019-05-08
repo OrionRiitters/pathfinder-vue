@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             oldTrails: [],
-            coordinates: [],
+            coordinates: [44.9778, -93.2650],
             newTrails: {},
             detailsTrail: {}
         }

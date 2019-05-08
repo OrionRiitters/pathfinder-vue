@@ -7,7 +7,7 @@ style="height: 100%; width: 100%"
 v-bind:zoom="zoom"
 v-bind:center="center">
       <l-tile-layer :url="url"></l-tile-layer>
-      <l-marker v-for="trail in newTrails" :icon="newIcon" :lat-lng="[trail.latitude, trail.longitude]"></l-marker>
+      <l-marker v-on:click="viewDetails(trail)" v-for="trail in newTrails" :icon="newIcon" :lat-lng="[trail.latitude, trail.longitude]"></l-marker>
 
     </l-map>
 
@@ -44,17 +44,14 @@ export default {
             type: Array
         }
     },
-    mounted() {
-        this.$refs.trailMap.mapObject.dragging.disable()
-    },
-    await() {
-        this.center = this.coordinates
-        this.$refs.stateMap.mapObject.flyTo(this.center, this.zoom)
+    methods: {
+        viewDetails(trail) {
+            this.$emit("viewDetails", trail)
+        }
     },
     watch: {
         newTrails: function() {
             this.center = this.coordinates
-            this.$refs.trailMap.mapObject.flyTo(this.center, this.zoom)
         }
     }
 };
