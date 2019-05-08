@@ -1,7 +1,7 @@
 module.exports = (sequelize, Datatypes) => {
 
     var Trail = sequelize.define('Trail', {
-        trail_id: {
+        id: {
             type: Datatypes.INTEGER,
             primaryKey: true
         },
@@ -34,7 +34,7 @@ module.exports = (sequelize, Datatypes) => {
         }
     });
 
-    Trail.sync({force: false}).then( () => {
+    Trail.sync({force: true}).then( () => {
         console.log('synced trail table');
     });
 

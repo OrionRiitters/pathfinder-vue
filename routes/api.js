@@ -13,10 +13,15 @@ module.exports = function(Trail) {
         });
     });
 
+    router.post('/db/trails', function(req, res, next) {
+        Trail.create(req.body)
+            .then(trail => res.json(trail));
+    });
+
     router.patch('/db/trails', function(req, res, next) {
         Trail.update(
             {hasHiked: req.body.hasHiked},
-            {returning: true, where: {trail_id: req.body.trail_id}})
+            {returning: true, where: {id: req.body.id}})
             .then(function( [rowsUpdate, [updatedTrail] ]) {
                 res.json(updatedTrail);
             });

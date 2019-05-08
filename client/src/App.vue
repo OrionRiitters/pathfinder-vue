@@ -55,12 +55,12 @@ export default {
             let hiked = (trail.hasHiked ? false : true)
             this.$trail_api.updateTrailHiked(
                 {
-                    trail_id: trail.trail_id,
+                    id: trail.id,
                     hasHiked: hiked
                 }).then(res => {
             
                     for (let i in this.oldTrails) {
-                        if (res.trail_id == this.oldTrails[i].trail_id) {
+                        if (res.id == this.oldTrails[i].id) {
                             this.oldTrails[i].hasHiked = res.hasHiked
                             this.detailsTrail = this.oldTrails[i]
                         }

@@ -4,7 +4,7 @@
                 <p>Details</p>
             </div>
             <div id="left-details">
-              <div v-if="detailsTrail.name">
+              <div v-if="detailsTrail.id">
               <h2>{{ detailsTrail.name }}</h2>
               <p>Location: {{ detailsTrail.location }}</p>
               <p>Stars: {{ detailsTrail.stars }}</p>
@@ -14,7 +14,8 @@
               <p>{{detailsTrail.hasHiked}}</p>
               <button v-if="detailsTrail.hasOwnProperty('hasHiked')" class="btn btn-secondary btn-right" v-on:click="changeHiked">
         Changed Hiked Status
-      </button>
+              </button>
+              <button v-on:click="saveTrail">Save Trail</button>
               </div>
             </div>
             </div>
@@ -37,7 +38,12 @@ export default {
         changeHiked() {
             this.$emit('changeHiked', this.detailsTrail);
             console.log(this.detailsTrail)
-    }
+        },
+        saveTrail() {
+            this.$trail_api.saveNewTrail(this.detailsTrail)
+                .then(res => { console.log(res) })
+            .catch(err => {console.log(err) });
+        }
     }
 
 };

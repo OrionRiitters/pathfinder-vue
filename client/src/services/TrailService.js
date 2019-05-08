@@ -38,5 +38,17 @@ export default {
                 console.log(err);
                 throw err;
             });
+    },
+    saveNewTrail(newTrail) {
+
+        return axios.post(
+            db_url,
+            newTrail
+        ).then(res => {
+            return res['data'];
+        }).catch(err => {
+            console.log(err);
+            throw err;
+        });
     }
 };
