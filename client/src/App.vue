@@ -1,5 +1,6 @@
 <template>
 <div id="app" class="grid-container app-container">
+<body background="assets/adventure-alpine-background-355747.jpg">
   <title>Path Finder</title>
   <page-header />
     <left-box v-on:changeHiked="changeHiked" v-on:newTrail="newTrail" v-bind:detailsTrail="detailsTrail" />

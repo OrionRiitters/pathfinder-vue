@@ -1,6 +1,7 @@
 <template>
   <div id="bucket-list" class="right-box">
     <table>
+    <tbody>
     <th>Name</th>
     <th>Hiked?</th>
       <bucket-row
@@ -8,6 +9,7 @@
         v-on:viewDetails="viewDetails"
         v-for="trail in oldTrails"
         v-bind:trail="trail" />
+        </tbody>
       </table>
   </div>
 </template>
