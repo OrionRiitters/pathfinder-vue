@@ -203,7 +203,7 @@ export default {
   }
 
   .btn-secondary {
-    width: 25%;
+    width: 100%;
     background-color: #dcdcdc;
     color: #3f3f3f;
     border-radius: 3px 3px 3px 3px;
@@ -240,7 +240,7 @@ export default {
     width: 75%;
   }
   .btn-left {
-  
+
 
   }
 
@@ -274,13 +274,9 @@ export default {
 
   }
 
-  bucket-row {
-    padding: 8px;
+  td {
     border-top: 1px solid rgba(63, 63, 63, 0.95);
     margin: 4px;
-  }
-
-  td {
     padding-left: 8px;
     padding-right: 8px;
   }

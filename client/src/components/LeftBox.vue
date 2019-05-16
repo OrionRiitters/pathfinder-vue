@@ -13,10 +13,13 @@
               <p class="trail-attr">Summary: {{ detailsTrail.summary }}</p>
               <p class="trail-attr" v-if="detailsTrail.hasHiked">Hiked!</p>
               <p class="trail-attr" v-else>Not Hiked!</p>
-              <button btn btn-primary v-if="detailsTrail.hasOwnProperty('hasHiked')" class="btn btn-secondary btn-right" v-on:click="changeHiked">
-        Changed Hiked Status
+              <button v-if="detailsTrail.hasOwnProperty('hasHiked')" class="btn btn-secondary" v-on:click="changeHiked">
+                  Changed Hiked Status
               </button>
-              <button btn btn-primary v-if="true" v-on:click="saveTrail">Save Trail</button>
+
+              <button class="btn btn-secondary" v-on:click="saveTrail">
+                 Save Trail
+              </button>
               </div>
             </div>
             </div>
