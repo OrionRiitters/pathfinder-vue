@@ -2,8 +2,6 @@
   <div id="bucket-list" class="right-box">
     <table>
     <tbody>
-    <th>Name</th>
-    <th>Hiked?</th>
       <bucket-row
         v-on:changeHiked="changeHiked"
         v-on:viewDetails="viewDetails"

@@ -1,5 +1,5 @@
-<template>
-<div v-bind:style="{ backgroundImage: 'url(' +  image + ')' }" id="app" class="grid-container app-container">
+<template v-bind:style="{ backgroundImage: 'url(' +  image + ')' }">
+<div id="app" class="grid-container app-container">
 
   <title>Path Finder</title>
   <page-header />
@@ -83,9 +83,13 @@ export default {
    * because they are multiples of the 16:9 aspect ratio. I think that makes sense.
    */
 
+   template {
+       background-size: cover
+   }
+
   #app {
     font-family: 'Archivo', sans-serif;
-    background-size: cover
+
   }
 
   .grid-container {

@@ -1,9 +1,9 @@
 <template>
   <div id="bucket-row">
     <tr>
-      <td class="vertical-center">{{ trail.name }}</td>
-      <td class="vertical-center" v-if="trailHiked">Yes</td>
-      <td class="vertical-center" v-else>No</td>
+      <td>{{ trail.name }}</td>
+      <td v-if="trailHiked">Hiked!</td>
+      <td v-else>Not Hiked!</td>
       <button class="btn btn-secondary btn-right" v-on:click="showDetails">
         View Details
       </button>
