@@ -76,14 +76,202 @@ export default {
 </script>
 
 <style>
+
+
+/*
+ * Use CSS Grid to divide page into 32 rows and 18 columns. These numbers are used
+ * because they are multiples of the 16:9 aspect ratio. I think that makes sense.
+ */
+
 #app {
     font-family: 'Archivo', sans-serif;
 }
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(32, 1fr);
     grid-template-rows: repeat(36, 1fr);
     height: 100vh;
     width: 100vw;
+}
+
+#page-header {
+    text-align: center;
+    grid-row: 1 / 5;
+    grid-column: 2 / 32;
+    color: #3f3f3f;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 'bold';
+}
+
+#header-title {
+    display: inline-block;
+}
+
+#search-header {
+    grid-row: 2 / 5;
+    grid-column: 10 / 32;
+}
+
+#search {
+    grid-row: 5 / 8;
+    grid-column: 10 / 32;
+    background-color: rgba(45, 45, 45, 0.95);
+    border-radius: 5px 5px 0px 0px;
+    border-top: 1px solid rgba(150, 150, 150, 0.6);
+    border-right: 1px solid rgba(150, 150, 150, 0.6);
+    border-left: 1px solid rgba(150, 150, 150, 0.6);
+}
+
+#city {
+    height: 60%;
+    width: 40%;
+    border-radius: 6px;
+    margin-left: 4px;
+}
+
+#state {
+    width: 20%;
+}
+
+/* Title of left-box. */
+#left-header {
+    grid-row: 5 / 8;
+    grid-column: 2 / 9;
+    background-color: #cce6bc;
+    color: #323232;
+    vertical-align: center;
+    text-align: center;
+    font-size: 36px;
+    border-radius: 5px 5px 0px 0px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#left-box {
+    grid-row: 8 / 36;
+    grid-column: 2 / 9;
+    background-color: rgba(63, 63, 63, 0.95);
+    color: #f5f5f5;
+    overflow: auto;
+    border-radius: 0px 0px 5px 5px;
+    font-family: 'Archivo', sans-serif;
+    border: 2px solid rgba(63, 63, 63, 0.95);
+}
+
+/* Rules that everything in the right box obey. */
+#leaflet-map, #bucket-list {
+    grid-row: 8 / 36;
+    grid-column: 10 / 32;
+    background-color: rgba(63, 63, 63, 0.95);
+    color: white;
+    overflow: auto;
+    color: #f5f5f5;
+    border-radius: 0px 0px 5px 5px;
+    opacity: 95%;
+    border: 1px solid rgba(150, 150, 150, 0.6);
+    border-top: 1px solid rgba(63, 63, 63, 0.6);
+
+}
+
+#bl-inner {
+    grid-row: 8 / 36;
+    grid-column: 2 / 32;
+    font-family: 'Archivo', sans-serif;
+}
+
+/* Below this are 3 selectors that affect the bucket list table. */
+table {
+    width: 100%;
+}
+
+tbody {
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+}
+
+td {
+    font-weight: bold;
+    border-bottom: 1px;
+    border-top: 1px;
+    border-color: white;
+}
+
+.btn-secondary {
+    width: 25%;
+    background-color: #dcdcdc;
+    color: #3f3f3f;
+}
+
+.btn-secondary:hover {
+    //background-color: #a2f0d0;
+    background-color: #cce6bc;
+    color: #3f3f3f;
+}
+
+/* Used to center things vertically. */
+.vertical-center {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.block {
+    width: 18%;
+    height: 60%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.btn-right {
+    height: 40%;
+    width: 75%;
+}
+.btn-left {
+    width: 100%;
+
+}
+
+/* Buttons in search bar. */
+.btn-primary {
+    background-color: #f5f5f5;
+    color: #3f3f3f;
+    border-color: #3f3f3f;
+}
+
+.btn-primary:hover {
+    background-color: #3f3f3f;
+    border-color: #dcdcdc
+}
+
+.btn {
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+ /* Each detail listener in the left-box. */
+.trail-attr {
+    padding-right: 8px;
+    padding-left: 8px;
+    padding-bottom: 6px;
+    padding-top: 6px;
+    border-bottom: 1px solid rgba(63, 63, 63, 0.95);
+    margin: 0px;
+
+}
+
+td {
+    padding: 8px;
+    border-top: 1px solid rgba(63, 63, 63, 0.95);
+}
+
+th {
+    color: rgba(200, 220, 220, 0.8);
 }
 </style>

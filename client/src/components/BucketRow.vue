@@ -4,12 +4,16 @@
       <td>{{ trail.name }}</td>
       <td v-if="trailHiked">Yes</td>
       <td v-else>No</td>
+      <td>
       <button class="btn btn-secondary btn-right" v-on:click="showDetails">
         View Details
       </button>
+      </td>
+      <td>
       <button class="btn btn-secondary btn-right" v-on:click="changeHiked">
         Changed Hiked Status
       </button>
+      </td>
     </tr>
   </div>
 </template>
@@ -39,10 +43,5 @@ this.$emit('changeHiked', this.trail);
 </script>
 
 <style>
-td {
-    font-weight: bold;
-    border-bottom: 1px;
-    border-top: 1px;
-    border-color: white;
-}
+
 </style>
