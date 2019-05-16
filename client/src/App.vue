@@ -1,6 +1,6 @@
 <template>
-<div id="app" class="grid-container app-container">
-<body background="assets/adventure-alpine-background-355747.jpg">
+<div v-bind:style="{ backgroundImage: 'url(' +  image + ')' }" id="app" class="grid-container app-container">
+
   <title>Path Finder</title>
   <page-header />
     <left-box v-on:changeHiked="changeHiked" v-on:newTrail="newTrail" v-bind:detailsTrail="detailsTrail" />
@@ -22,7 +22,8 @@ export default {
             oldTrails: [],
             coordinates: [44.9778, -93.2650],
             newTrails: {},
-            detailsTrail: {}
+            detailsTrail: {},
+            image: "https://raw.githubusercontent.com/OrionRiitters/path_finder/master/static/assets/images/adventure-alpine-background-355747.jpg"
         }
     },
     components: {
