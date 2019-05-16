@@ -1,12 +1,12 @@
 <template>
   <div id="bucket-list" class="right-box">
-    <td>
+    <table>
       <bucket-row
         v-on:changeHiked="changeHiked"
         v-on:viewDetails="viewDetails"
         v-for="trail in oldTrails"
         v-bind:trail="trail" />
-      </td>
+      </table>
   </div>
 </template>
 
