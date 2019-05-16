@@ -85,6 +85,7 @@ export default {
 
   #app {
     font-family: 'Archivo', sans-serif;
+    background-size: cover
   }
 
   .grid-container {
@@ -201,6 +202,7 @@ export default {
     width: 25%;
     background-color: #dcdcdc;
     color: #3f3f3f;
+    border-radius: 3px 3px 3px 3px;
   }
 
   .btn-secondary:hover {
@@ -243,15 +245,18 @@ export default {
     background-color: #f5f5f5;
     color: #3f3f3f;
     border-color: #3f3f3f;
+    border-radius: 5px 5px 5px 5px;
   }
 
   .btn-primary:hover {
-    background-color: #3f3f3f;
+    background-color: #9f9f9f;
     border-color: #dcdcdc
   }
 
   .btn {
     font-weight: bold;
+    text-align: center;
+
   }
 
   /* Each detail listener in the left-box. */
