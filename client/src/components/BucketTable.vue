@@ -1,5 +1,5 @@
 <template>
-  <div id="bucket-table">
+  <div id="bucket-table" class="bucket-list">
     <td>
       <bucket-row
         v-on:
