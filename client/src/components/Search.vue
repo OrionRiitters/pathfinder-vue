@@ -14,8 +14,8 @@
       <p >Find Path</p>
     </button>
 
-    <button id="saved-trails" class="btn btn-primary block" v-on:click="routerPush">
-      <p v-if="routeIsMap" class="vertical-center">Saved Trails</p>
+    <button id="saved-trails" class="btn btn-primary vertical-center block" v-on:click="routerPush">
+      <p v-if="routeIsMap" >Saved Trails</p>
       <p v-else class="vertical-center">View Map</p>
     </button>
   </div>

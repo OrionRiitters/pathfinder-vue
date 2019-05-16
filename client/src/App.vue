@@ -240,7 +240,7 @@ export default {
     width: 75%;
   }
   .btn-left {
-    width: 100%;
+  
 
   }
 
@@ -274,10 +274,15 @@ export default {
 
   }
 
-  td {
+  bucket-row {
     padding: 8px;
     border-top: 1px solid rgba(63, 63, 63, 0.95);
     margin: 4px;
+  }
+
+  td {
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   th {

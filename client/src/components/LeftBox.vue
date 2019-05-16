@@ -16,7 +16,7 @@
               <button btn btn-primary v-if="detailsTrail.hasOwnProperty('hasHiked')" class="btn btn-secondary btn-right" v-on:click="changeHiked">
         Changed Hiked Status
               </button>
-              <button btn btn-primary v-on:click="saveTrail">Save Trail</button>
+              <button btn btn-primary v-if="true" v-on:click="saveTrail">Save Trail</button>
               </div>
             </div>
             </div>
