@@ -1,7 +1,5 @@
-const geocode = require('./geocode-api');
+const geocode = require('./geocode-api')
 
-asdf = geocode('Little falls', 'MN')
-    .then(
-        res => {
-            console.log(res);
-        });
+asdf = geocode('Little falls', 'MN').then(res => {
+  console.log(res)
+})

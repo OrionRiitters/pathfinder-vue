@@ -41,11 +41,17 @@ export default {
         this.loadSavedTrails();
     },
     methods: {
+
+         /* Calls api service to load saved trails to the app
+         */
         loadSavedTrails() {
             this.$trail_api.getAllTrails().then( res => {
                 this.oldTrails = res;
             } )
         },
+
+        /*  Calls api service to snag trails from external APIs. Updates this app's coordinates and trails as well.
+        */
         findTrails(city, state) {
             this.$trail_api.findTrails(city, state).then( res => {
                 // Assign response data to component variables
@@ -60,6 +66,9 @@ export default {
             console.log(trail);
             this.oldTrails.push(trail);
         },
+
+        /* Calls on database to update a row's hiked value. Then updates the trails on Vue's end.
+         */
         changeHiked(trail) {
             let hiked = (trail.hasHiked ? false : true)
             this.$trail_api.updateTrailHiked(

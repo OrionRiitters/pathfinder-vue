@@ -16,26 +16,26 @@
 
 <script>
 export default {
-  name: "BucketRow",
+  name: 'BucketRow',
   props: {
     trail: {
-      value: Array
-    }
+      value: Array,
+    },
   },
   computed: {
     trailHiked: function() {
-      return this.trail.hasHiked;
-    }
+      return this.trail.hasHiked
+    },
   },
   methods: {
     showDetails() {
-      this.$emit("viewDetails", this.trail);
+      this.$emit('viewDetails', this.trail)
     },
-changeHiked() {
-this.$emit('changeHiked', this.trail);
-    }
-  }
-};
+    changeHiked() {
+      this.$emit('changeHiked', this.trail)
+    },
+  },
+}
 </script>
 
 <style></style>
