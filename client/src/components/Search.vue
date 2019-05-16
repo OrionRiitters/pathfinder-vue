@@ -11,10 +11,10 @@
       <option :value="state" v-for="state in states">{{ state }}</option>
     </select>
     <button id="find-path" class="btn btn-primary vertical-center block" v-on:click="findPath">
-      <p class="vertical-center">Find Path</p>
+      <p >Find Path</p>
     </button>
 
-    <button id="saved-trails" class="btn btn-primary vertical-center block" v-on:click="routerPush">
+    <button id="saved-trails" class="btn btn-primary block" v-on:click="routerPush">
       <p v-if="routeIsMap" class="vertical-center">Saved Trails</p>
       <p v-else class="vertical-center">View Map</p>
     </button>

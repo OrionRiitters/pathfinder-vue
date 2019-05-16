@@ -1,5 +1,5 @@
-<template v-bind:style="{ backgroundImage: 'url(' +  image + ')' }">
-<div id="app" class="grid-container app-container">
+<template >
+<div v-bind:style="{ backgroundImage: 'url(' +  image + ')' }" id="app" class="grid-container app-container">
 
   <title>Path Finder</title>
   <page-header />
@@ -274,9 +274,10 @@ export default {
 
   }
 
-  tr {
+  td {
     padding: 8px;
     border-top: 1px solid rgba(63, 63, 63, 0.95);
+    margin: 4px;
   }
 
   th {
