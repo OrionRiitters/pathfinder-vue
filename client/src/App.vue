@@ -274,7 +274,7 @@ export default {
 
   }
 
-  td {
+  tr {
     padding: 8px;
     border-top: 1px solid rgba(63, 63, 63, 0.95);
   }
