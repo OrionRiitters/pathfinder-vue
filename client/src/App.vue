@@ -10,6 +10,7 @@
   </div>
 </template>
 
+<!-- The app component contains the page's header, the search component, the left box and the router.-->
 <script>
 import PageHeader from './components/Header.vue'
 import Search from './components/Search.vue'
@@ -23,6 +24,8 @@ export default {
             coordinates: [44.9778, -93.2650],
             newTrails: {},
             detailsTrail: {},
+
+            // Background image
             image: "https://raw.githubusercontent.com/OrionRiitters/path_finder/master/static/assets/images/adventure-alpine-background-355747.jpg"
         }
     },
@@ -253,7 +256,7 @@ export default {
   }
 
   .btn-primary:hover {
-    background-color: #9f9f9f;
+    background-color: #cce6bc;
     border-color: #dcdcdc
   }
 
