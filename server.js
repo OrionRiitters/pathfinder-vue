@@ -2,17 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Sequelize = require('sequelize');
 const path = require('path');
-const dotenv = require('dotenv');
 const api_routes = require('./routes/api.js');
 
-
-// Create environment variable from .env file
-dotenv.config();
 // Set up database, this will work locally, not for Heroku.
-sequelize = new Sequelize(process.env.POSTGRES_URI, {dialect: 'postgres'});
+sequelize = new Sequelize(process.env.DATABASE_URL, {dialect: 'postgres'});
 
 sequelize.authenticate()
-    .then(() => console.log('connected to postgres'))
+    .then(() => console.log('connected to postgres'));
     .catch(err => console.log('error connecting', err));
 
 const trail = require('./model/trail.js')(sequelize, Sequelize);

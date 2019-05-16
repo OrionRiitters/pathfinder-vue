@@ -3,7 +3,7 @@ const axios = require('axios');
 module.exports = function(lat, lon) {
     const url = "https://www.hikingproject.com/data/get-trails";
 
-   const key = process.env.HIKING_PROJECT_KEY;
+   const key = "200463900-514c8646ea713aa2db3278cd653b566f";
 
     try {
         return axios.get(url, {
