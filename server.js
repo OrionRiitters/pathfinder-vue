@@ -5,8 +5,8 @@ const path = require('path');
 const api_routes = require('./routes/api.js');
 
 // Set up database, this will work locally, not for Heroku.
-// sequelize = new Sequelize('postgres://ahsozxwgafhowa:cb22b6451f9e69f33834bc2f006d5b4a0c6e455c3b7265c43c0ffdbde5736711@ec2-54-225-106-93.compute-1.amazonaws.com:5432/deon9t26ij4jpu', {dialect: 'postgres'});
-
+ sequelize = new Sequelize('postgres://ahsozxwgafhowa:cb22b6451f9e69f33834bc2f006d5b4a0c6e455c3b7265c43c0ffdbde5736711@ec2-54-225-106-93.compute-1.amazonaws.com:5432/deon9t26ij4jpu', {dialect: 'postgres'});
+/*
 sequelize = new Sequelize({
     user: "ahsozxwgafhowa",
     password: 'b22b6451f9e69f33834bc2f006d5b4a0c6e455c3b7265c43c0ffdbde5736711',
@@ -17,7 +17,7 @@ sequelize = new Sequelize({
     dialect: 'postgres'
 
 })
-
+*/
 
 sequelize.authenticate()
     .then(() => console.log('connected to postgres'))
