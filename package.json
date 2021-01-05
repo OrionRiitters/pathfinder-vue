@@ -3,7 +3,7 @@
     "description": "A Vue implementation of https://github.com/orionriitters/path_finder",
     "author": "Orion McCoy-Riitters",
     "dependencies": {
-        "axios": "^0.18.0",
+        "axios": "^0.21.1",
         "body-parser": "^1.19.0",
         "eslint": "^5.16.0",
         "express": "^4.16.4",
